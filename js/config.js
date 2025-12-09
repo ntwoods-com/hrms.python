@@ -5,7 +5,7 @@
 
 const CONFIG = {
     // API Configuration
-    API_BASE_URL: 'http://localhost:5000/api',  // Change in production
+    API_BASE_URL: 'https://unauthentic-loralee-interapophysal.ngrok-free.dev/api',  // Change in production
     
     // Google OAuth Client ID
     GOOGLE_CLIENT_ID: '1029752642188-ku0k9krbdbsttj9br238glq8h4k5loj3.apps.googleusercontent.com',
