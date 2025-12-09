@@ -1,0 +1,600 @@
+/**
+ * HRMS Responsive Stylesheet
+ * Media queries for responsive design
+ */
+
+/* =========================================
+   Extra Large Screens (1400px+)
+   ========================================= */
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .pipeline-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* =========================================
+   Large Screens (992px - 1399px)
+   ========================================= */
+
+@media (max-width: 1399px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .pipeline-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* =========================================
+   Medium Screens (768px - 991px)
+   ========================================= */
+
+@media (max-width: 991px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+        transform: translateX(-100%);
+        z-index: var(--z-sidebar);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: calc(var(--z-sidebar) - 1);
+    }
+    
+    .sidebar.active + .sidebar-overlay {
+        display: block;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding-left: 1rem;
+    }
+    
+    /* Mobile menu toggle */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Pipeline */
+    .pipeline-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Dashboard widgets */
+    .dashboard-widgets {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Form horizontal */
+    .form-horizontal .form-group {
+        flex-direction: column;
+    }
+    
+    .form-horizontal .form-label {
+        flex: none;
+        text-align: left;
+        padding-right: 0;
+        padding-top: 0;
+    }
+    
+    .form-horizontal .form-control-wrapper {
+        flex: none;
+    }
+    
+    /* Detail grid */
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .detail-item.full-width {
+        grid-column: span 1;
+    }
+    
+    /* Navbar */
+    .navbar-search {
+        display: none;
+    }
+    
+    .navbar-search-mobile {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+
+/* =========================================
+   Small Screens (576px - 767px)
+   ========================================= */
+
+@media (max-width: 767px) {
+    .container {
+        max-width: 540px;
+        padding: 0 1rem;
+    }
+    
+    /* Typography */
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+    }
+    
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .stat-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+    
+    .stat-value {
+        font-size: 1.25rem;
+    }
+    
+    /* Pipeline */
+    .pipeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .pipeline-card {
+        padding: 0.75rem;
+    }
+    
+    /* Cards */
+    .card {
+        border-radius: var(--border-radius);
+    }
+    
+    .card-header,
+    .card-body,
+    .card-footer {
+        padding: 1rem;
+    }
+    
+    /* Modal */
+    .modal {
+        padding: 0.5rem;
+    }
+    
+    .modal-container {
+        max-height: 95vh;
+    }
+    
+    .modal-lg .modal-container,
+    .modal-xl .modal-container {
+        max-width: 100%;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 0.625rem 1rem;
+    }
+    
+    .btn-lg {
+        padding: 0.75rem 1.25rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+    }
+    
+    /* Table */
+    .table-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 0.625rem 0.75rem;
+    }
+    
+    /* Filter form */
+    .filter-form {
+        flex-direction: column;
+    }
+    
+    .filter-form .form-group {
+        width: 100%;
+    }
+    
+    /* Navbar */
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1rem;
+    }
+    
+    /* Login page */
+    .login-container {
+        flex-direction: column;
+    }
+    
+    .login-branding {
+        padding: 2rem;
+    }
+    
+    .login-form-section {
+        padding: 2rem;
+    }
+}
+
+/* =========================================
+   Extra Small Screens (< 576px)
+   ========================================= */
+
+@media (max-width: 575px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    /* Typography */
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.25rem;
+    }
+    
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Pipeline */
+    .pipeline-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Buttons */
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .btn-group .btn {
+        border-radius: var(--border-radius);
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Action buttons */
+    .action-buttons {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    /* User menu */
+    .user-menu-dropdown {
+        right: -1rem;
+        left: auto;
+        width: calc(100vw - 2rem);
+        max-width: 280px;
+    }
+    
+    /* Toast */
+    .toast-container {
+        left: 1rem;
+        right: 1rem;
+        max-width: none;
+    }
+    
+    /* Candidate form */
+    .step-indicators {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .step-indicator:not(:last-child)::after {
+        display: none;
+    }
+    
+    /* File list */
+    .file-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .file-info {
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-remove-file {
+        align-self: flex-end;
+    }
+}
+
+/* =========================================
+   Print Styles
+   ========================================= */
+
+@media print {
+    /* Hide non-essential elements */
+    .sidebar,
+    .navbar,
+    .sidebar-toggle,
+    .mobile-menu-toggle,
+    .btn,
+    .action-buttons,
+    .toast-container,
+    .modal,
+    .no-print {
+        display: none !important;
+    }
+    
+    /* Reset layout */
+    .main-content {
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Page setup */
+    @page {
+        margin: 1.5cm;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: #000;
+        background: #fff;
+    }
+    
+    /* Tables */
+    .data-table {
+        border: 1px solid #000;
+    }
+    
+    .data-table th,
+    .data-table td {
+        border: 1px solid #000;
+        padding: 0.5rem;
+    }
+    
+    .data-table th {
+        background-color: #f0f0f0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    /* Cards */
+    .card {
+        border: 1px solid #000;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+    
+    /* Links */
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+    
+    /* Badges */
+    .badge {
+        border: 1px solid #000;
+        padding: 0.125rem 0.25rem;
+    }
+}
+
+/* =========================================
+   Touch Device Optimizations
+   ========================================= */
+
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets */
+    .btn {
+        min-height: 44px;
+        padding: 0.75rem 1.25rem;
+    }
+    
+    .btn-icon {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .form-control {
+        min-height: 44px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+    
+    select.form-control {
+        min-height: 44px;
+    }
+    
+    .checkbox-custom,
+    .radio-custom {
+        padding-left: 2rem;
+        min-height: 44px;
+    }
+    
+    .checkbox-custom .checkmark,
+    .radio-custom .radio-mark {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    /* Remove hover effects */
+    .btn:hover,
+    .data-table tbody tr:hover,
+    .sidebar-nav a:hover {
+        background-color: transparent;
+    }
+    
+    /* Active states for touch */
+    .btn:active {
+        opacity: 0.8;
+    }
+    
+    .data-table tbody tr:active {
+        background-color: rgba(102, 126, 234, 0.1);
+    }
+    
+    /* Sidebar links */
+    .sidebar-nav a {
+        padding: 1rem 1.5rem;
+    }
+    
+    /* Pagination */
+    .pagination-btn {
+        min-width: 44px;
+        height: 44px;
+    }
+}
+
+/* =========================================
+   Dark Mode (System Preference)
+   ========================================= */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #e1e1e1;
+        --text-secondary: #a0a0a0;
+        --text-muted: #6c6c6c;
+        --background-color: #1a1a1a;
+        --card-background: #242424;
+        --border-color: #333;
+    }
+    
+    /* Note: Dark mode styles can be enabled by
+       removing the .light-mode class or adding
+       a .dark-mode class to the body */
+}
+
+/* =========================================
+   Reduced Motion
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .loading-spinner {
+        animation: none;
+        border: 3px solid var(--primary-color);
+    }
+}
+
+/* =========================================
+   High Contrast Mode
+   ========================================= */
+
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000ff;
+        --success-color: #008000;
+        --warning-color: #ff8c00;
+        --danger-color: #ff0000;
+        --border-color: #000;
+    }
+    
+    .btn,
+    .form-control,
+    .card,
+    .badge {
+        border-width: 2px;
+    }
+    
+    .btn-primary {
+        background-color: #0000ff;
+        color: #fff;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* =========================================
+   Landscape Mobile
+   ========================================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .login-container {
+        flex-direction: row;
+    }
+    
+    .login-branding {
+        width: 40%;
+        padding: 1.5rem;
+    }
+    
+    .login-form-section {
+        width: 60%;
+        padding: 1.5rem;
+        overflow-y: auto;
+    }
+    
+    .modal-container {
+        max-height: 95vh;
+    }
+    
+    .modal-body {
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+}

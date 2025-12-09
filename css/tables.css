@@ -1,0 +1,626 @@
+/**
+ * HRMS Tables Stylesheet
+ * Styles for data tables and table components
+ */
+
+/* =========================================
+   Table Base
+   ========================================= */
+
+.table-container {
+    background: #fff;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.table-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.table-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* =========================================
+   Data Table
+   ========================================= */
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+    background-color: var(--background-color);
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.data-table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.data-table tbody tr:hover {
+    background-color: rgba(102, 126, 234, 0.03);
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Text Alignment */
+.data-table .text-center {
+    text-align: center;
+}
+
+.data-table .text-right {
+    text-align: right;
+}
+
+/* Column Widths */
+.data-table .col-id {
+    width: 100px;
+}
+
+.data-table .col-actions {
+    width: 120px;
+    text-align: center;
+}
+
+.data-table .col-status {
+    width: 120px;
+}
+
+.data-table .col-date {
+    width: 130px;
+}
+
+/* =========================================
+   Table Variations
+   ========================================= */
+
+/* Striped Table */
+.data-table-striped tbody tr:nth-child(even) {
+    background-color: var(--background-color);
+}
+
+/* Bordered Table */
+.data-table-bordered {
+    border: 1px solid var(--border-color);
+}
+
+.data-table-bordered th,
+.data-table-bordered td {
+    border: 1px solid var(--border-color);
+}
+
+/* Compact Table */
+.data-table-compact th,
+.data-table-compact td {
+    padding: 0.5rem 0.75rem;
+}
+
+/* Fixed Header Table */
+.table-fixed-header {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.table-fixed-header thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.table-fixed-header th {
+    background-color: var(--background-color);
+    box-shadow: 0 1px 0 var(--border-color);
+}
+
+/* =========================================
+   Action Buttons in Table
+   ========================================= */
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.btn-icon {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.btn-icon:hover {
+    background-color: var(--background-color);
+    color: var(--text-primary);
+}
+
+.btn-icon.btn-edit:hover {
+    color: var(--info-color);
+}
+
+.btn-icon.btn-delete:hover,
+.btn-icon.btn-reject:hover {
+    color: var(--danger-color);
+}
+
+.btn-icon.btn-view:hover {
+    color: var(--primary-color);
+}
+
+/* =========================================
+   User Info Cell
+   ========================================= */
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--background-color);
+}
+
+.user-avatar-lg {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.user-email {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* =========================================
+   Sortable Table Headers
+   ========================================= */
+
+.sortable {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.sortable::after {
+    content: '⇅';
+    position: absolute;
+    right: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.sortable:hover::after {
+    opacity: 1;
+}
+
+.sortable.sort-asc::after {
+    content: '↑';
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.sortable.sort-desc::after {
+    content: '↓';
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+/* =========================================
+   Selectable Table Rows
+   ========================================= */
+
+.data-table-selectable th:first-child,
+.data-table-selectable td:first-child {
+    width: 50px;
+    text-align: center;
+}
+
+.row-checkbox {
+    width: 1.125rem;
+    height: 1.125rem;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.data-table tbody tr.selected {
+    background-color: rgba(102, 126, 234, 0.08);
+}
+
+/* =========================================
+   Empty State
+   ========================================= */
+
+.table-empty {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.table-empty-icon {
+    font-size: 3rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.table-empty-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.table-empty-text {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   Table Footer & Pagination
+   ========================================= */
+
+.table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.table-info {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 0.5rem;
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: var(--background-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+.pagination-ellipsis {
+    padding: 0 0.5rem;
+    color: var(--text-muted);
+}
+
+/* Page Size Selector */
+.page-size-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.page-size-selector select {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+}
+
+/* =========================================
+   Expandable Rows
+   ========================================= */
+
+.expandable-row {
+    cursor: pointer;
+}
+
+.expand-toggle {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.expandable-row.expanded .expand-toggle {
+    transform: rotate(90deg);
+}
+
+.expanded-content {
+    display: none;
+    background-color: var(--background-color);
+}
+
+.expandable-row.expanded + .expanded-content {
+    display: table-row;
+}
+
+.expanded-content td {
+    padding: 1rem 1.5rem;
+}
+
+.expanded-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* =========================================
+   Search Highlight
+   ========================================= */
+
+.highlight {
+    background-color: rgba(255, 193, 7, 0.3);
+    padding: 0.125rem 0.25rem;
+    border-radius: 2px;
+}
+
+/* =========================================
+   Inline Editing
+   ========================================= */
+
+.editable-cell {
+    position: relative;
+    cursor: pointer;
+}
+
+.editable-cell:hover {
+    background-color: rgba(102, 126, 234, 0.05);
+}
+
+.editable-cell::after {
+    content: '';
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1rem;
+    height: 1rem;
+    opacity: 0;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23667eea'%3e%3cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3e%3c/svg%3e");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: opacity 0.2s;
+}
+
+.editable-cell:hover::after {
+    opacity: 0.5;
+}
+
+.editable-cell.editing::after {
+    display: none;
+}
+
+.editable-input {
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    font-size: inherit;
+    font-family: inherit;
+}
+
+/* =========================================
+   Requirement Cards Table
+   ========================================= */
+
+.requirement-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+.requirement-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.req-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.req-id {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.req-body {
+    padding: 1rem;
+}
+
+.req-body h4 {
+    margin: 0 0 0.75rem;
+    font-size: 1.125rem;
+}
+
+.req-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.req-details span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.req-details i {
+    color: var(--text-muted);
+}
+
+.req-description {
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.req-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.req-footer {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--background-color);
+    border-top: 1px solid var(--border-color);
+}
+
+/* =========================================
+   Responsive Tables
+   ========================================= */
+
+@media (max-width: 768px) {
+    .data-table-responsive {
+        border: 0;
+    }
+    
+    .data-table-responsive thead {
+        display: none;
+    }
+    
+    .data-table-responsive tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+    }
+    
+    .data-table-responsive tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .data-table-responsive tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--text-secondary);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+    }
+    
+    .data-table-responsive tbody td:last-child {
+        border-bottom: none;
+    }
+    
+    .table-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .table-actions {
+        flex-wrap: wrap;
+    }
+    
+    .table-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+}

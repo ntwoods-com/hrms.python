@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HRMS Dashboard - Human Resource Management System">
+    <title>Dashboard | HRMS - N.T Woods Pvt. Ltd.</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-building"></i>
+                <span>HRMS</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list" id="navList">
+                <!-- Dashboard -->
+                <li class="nav-item active">
+                    <a href="dashboard.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                
+                <!-- EA Modules -->
+                <li class="nav-section" data-role="ea,admin">
+                    <span class="section-title">EA Portal</span>
+                </li>
+                <li class="nav-item" data-module="requirements" data-role="ea,admin">
+                    <a href="ea/requirements.html" class="nav-link">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Raise Requirement</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="requirements" data-role="ea,admin">
+                    <a href="ea/incomplete-requirements.html" class="nav-link">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Incomplete Requirements</span>
+                        <span class="badge" id="incompleteCount">0</span>
+                    </a>
+                </li>
+                
+                <!-- HR Modules -->
+                <li class="nav-section" data-role="hr,admin">
+                    <span class="section-title">HR Portal</span>
+                </li>
+                <li class="nav-item" data-module="review_requirements" data-role="hr,admin">
+                    <a href="hr/review-requirements.html" class="nav-link">
+                        <i class="fas fa-search"></i>
+                        <span>Review Requirements</span>
+                        <span class="badge" id="pendingReviewCount">0</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="job_posting" data-role="hr,admin">
+                    <a href="hr/job-posting.html" class="nav-link">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Job Posting</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="cv_management" data-role="hr,admin">
+                    <a href="hr/cv-upload.html" class="nav-link">
+                        <i class="fas fa-file-upload"></i>
+                        <span>CV Upload</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="shortlisting" data-role="hr,admin">
+                    <a href="hr/shortlisting.html" class="nav-link">
+                        <i class="fas fa-user-check"></i>
+                        <span>Shortlisting</span>
+                        <span class="badge" id="shortlistingCount">0</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="telephonic" data-role="hr,admin">
+                    <a href="hr/telephonic.html" class="nav-link">
+                        <i class="fas fa-phone"></i>
+                        <span>Telephonic Screening</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="owner_discussion" data-role="hr,admin">
+                    <a href="hr/owner-discussion.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Discuss with Owners</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="schedule_interview" data-role="hr,admin">
+                    <a href="hr/schedule-interviews.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule Interviews</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="walk_ins" data-role="hr,admin">
+                    <a href="hr/walk-ins.html" class="nav-link">
+                        <i class="fas fa-walking"></i>
+                        <span>Walk-ins</span>
+                        <span class="badge" id="todayWalkinsCount">0</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="hr_interview" data-role="hr,admin">
+                    <a href="hr/hr-interview.html" class="nav-link">
+                        <i class="fas fa-user-tie"></i>
+                        <span>HR Interview</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="excel_test" data-role="hr,admin,ea">
+                    <a href="hr/tests.html" class="nav-link">
+                        <i class="fas fa-file-excel"></i>
+                        <span>Tests & Scoring</span>
+                    </a>
+                </li>
+                
+                <!-- Admin Modules -->
+                <li class="nav-section" data-role="admin">
+                    <span class="section-title">Admin Portal</span>
+                </li>
+                <li class="nav-item" data-module="users" data-role="admin">
+                    <a href="admin/users.html" class="nav-link">
+                        <i class="fas fa-users-cog"></i>
+                        <span>User Management</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="permissions" data-role="admin">
+                    <a href="admin/permissions.html" class="nav-link">
+                        <i class="fas fa-lock"></i>
+                        <span>Permissions</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="templates" data-role="admin">
+                    <a href="admin/templates.html" class="nav-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Job Templates</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-module="settings" data-role="admin">
+                    <a href="admin/settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                
+                <!-- Common -->
+                <li class="nav-section">
+                    <span class="section-title">Account</span>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <img src="../assets/default-avatar.png" alt="User" id="userAvatar" class="user-avatar">
+                <div class="user-details">
+                    <span class="user-name" id="userName">User Name</span>
+                    <span class="user-role" id="userRole">Role</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="page-title">Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <div class="header-date">
+                    <i class="fas fa-calendar"></i>
+                    <span id="currentDate"></span>
+                </div>
+                <div class="header-notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge" id="notificationCount">0</span>
+                    </button>
+                </div>
+                <div class="header-user">
+                    <img src="../assets/default-avatar.png" alt="User" id="headerUserAvatar" class="user-avatar-small">
+                    <span id="headerUserName">User</span>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-card">
+                    <div class="welcome-text">
+                        <h2>Welcome back, <span id="welcomeUserName">User</span>!</h2>
+                        <p>Here's what's happening with your recruitment pipeline today.</p>
+                    </div>
+                    <div class="welcome-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Stats Cards -->
+            <section class="stats-section">
+                <div class="stats-grid" id="statsGrid">
+                    <!-- Stats cards will be dynamically inserted based on role -->
+                </div>
+            </section>
+            
+            <!-- Quick Actions -->
+            <section class="quick-actions-section">
+                <h3 class="section-title">Quick Actions</h3>
+                <div class="quick-actions-grid" id="quickActionsGrid">
+                    <!-- Quick action cards will be dynamically inserted based on role -->
+                </div>
+            </section>
+            
+            <!-- Recent Activity -->
+            <section class="activity-section">
+                <div class="activity-card">
+                    <div class="card-header">
+                        <h3>Recent Activity</h3>
+                        <a href="#" class="view-all-link">View All</a>
+                    </div>
+                    <div class="activity-list" id="activityList">
+                        <!-- Activity items will be dynamically inserted -->
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-text">New requirement raised for CRM position</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Pipeline Overview -->
+            <section class="pipeline-section" id="pipelineSection">
+                <h3 class="section-title">Recruitment Pipeline</h3>
+                <div class="pipeline-cards" id="pipelineCards">
+                    <!-- Pipeline stage cards will be dynamically inserted -->
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Overlay for mobile sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- JavaScript -->
+    <script src="../js/config.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/permissions.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
